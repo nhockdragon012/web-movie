@@ -1,0 +1,270 @@
+@use '../../style/index' as *;
+
+header {
+    background: #333333;
+    margin-bottom: 20px;
+    .container {
+        width:980px;
+        margin: 0 auto;
+        @include mobile {
+            width: 100%;
+        }
+        @include tablet {
+            width: 100%;
+        }
+        .body-header{
+            padding: 5px 0;
+            @include mobile {
+                height: 55px;
+                .main-menu-mobile {
+                    display:block !important;
+                    float:left;
+                    margin-left: 10px;
+                    position: relative;
+                    .btn-burger {
+                        margin-top: 7px;
+                    }
+                    ul.container {
+                        display:none;
+                        position: fixed;
+                        z-index: 22;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        width: 220px;
+                        background: #333333;
+                        &.active {
+                            display:block;
+                        }
+                        li.menu-item {
+                            a {
+                                display: block;
+                                text-transform: uppercase;
+                                font-weight: normal;
+                                white-space: nowrap;
+                                text-align: center;
+                                padding: 15px 0px;
+                            }
+                            ul.list-menu-child {
+                                display:none;
+                                overflow: hidden;
+                                font-size: 12px;
+                                li.menu-item {
+                                    a {
+                                        text-transform: none;
+                                    }
+                                }
+                                &.active-menu-child {
+                                    display:block;
+                                }
+                            }
+                        }
+                        .overlay-mobile {
+                            display: block;
+                            position: fixed;
+                            top: 0;
+                            left: 220px;
+                            right: 0;
+                            background: #000000a8;
+                            bottom: 0;
+                        }
+                    }
+                }    
+                .mobile-search {
+                    float: right;
+                    margin-top: -10px;
+                    position: relative;
+                    .search-icon {
+                        margin-right: 10px;
+                    }
+                    .search-box {
+                        position: absolute;
+                        display: none;
+                        right: 0;
+                        width: 100vw;
+                        margin-top: 15px;
+                        &.active {
+                            display: block;
+                        }
+                        input.search {
+                            width: 100%;
+                            height: 40px;
+                            outline: none;
+                            background: #202020 linear-gradient(#666,#333);
+                            border: none;
+                            padding-left: 10px;
+                            color: #dcdcdc;
+                            &::placeholder {
+                                color: #dcdcdc;
+                            }
+                        }
+                        .icon-search {
+                            position: absolute;
+                            right: 5px;
+                            width: 20px;
+                            height: 20px;
+                            top: 100%;
+                            bottom: 100%;
+                            margin: auto;
+                            color: #dcdcdc;
+                            a { 
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+            @include tablet {
+                height:80px;
+                padding: 0 10px;
+            }
+            .main-menu-mobile {display:none;}
+            .left-header{
+                box-shadow: 0px 1px 3px rgb(0 0 0 / 20%);
+                float: left;
+                @include mobile {
+                    float:none;
+                    text-align:center;
+                    width: 200px;
+                    margin: auto;
+                }
+                a {
+                    img {
+                        height: 60px;
+                        margin-bottom: -55px;
+                        @include mobile {
+                            height: 45px;
+                            margin-bottom: -32px;
+                        }
+                    }
+                }
+            }
+            .right-header{
+                float: right;
+                width: 728px;
+                @include tablet {
+                    float: left;
+                    width: calc(100% - 235px);
+                    margin-left: 5px;
+                }
+                .search-box {
+                    float:left;
+                    width: 350px;
+                    margin:15px 0 8px 0;
+                    position: relative;
+                    input.search {
+                        @include size(100%, 32px);
+                        color: #000;
+                        border: 1px solid #353535;
+                        font-style: italic;
+                        font-size: 14px;
+                        outline: none;
+                        padding-left: 10px;
+                        transition: all 0.3s ease;
+                        &:placeholder-shown {
+                            padding: 0 10px;
+                            color: #757575;
+                        }
+                    }
+                    .icon-search {
+                        position: absolute;
+                        right: 5px;
+                        top: 6px;
+                        color:#666666;
+                        cursor: pointer;
+                    }
+                }
+                .user-menu-box {
+                    float:right;
+                    padding: 5px;
+                    @include tablet {
+                        padding: 0;
+                    }
+                    ul {
+                        li {
+                            margin: 0 5px;
+                            display: inline-flex;
+                            align-items: flex-end;
+                            font-size:12px;
+                            cursor: pointer;
+                            a {
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                            .icon {
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+                .note {
+                    clear:both;
+                    @include tablet {
+                        clear: inherit;
+                        float: left;
+                        margin-top: 2px;
+                    }
+                    p {
+                        font-style: italic;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+    .main-menu {
+        background:#2d2d2d;
+        @include tablet {
+            width: 100%;
+            margin: auto;
+        }
+        ul.container {
+            display:flex;
+            @include tablet {
+                justify-content: center;
+            }
+            li.menu-item {
+                display: inline-flex;
+                transition: border-bottom .2s ease-in-out;
+                position: relative;
+                ul.list-menu-child {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background:#2d2d2d;
+                    z-index: 2;
+                }
+                a {
+                    text-transform: uppercase;
+                    font-size: 16px;
+                    white-space: nowrap;
+                    padding: 14px 11.6px;
+                    cursor: pointer;
+                    &:hover {
+                        color: #ff9601;
+                        
+                    }
+                }
+                &.active {
+                    color: #ff9601;
+                    border-bottom: 3px solid #ccc;
+                }
+                &:hover {
+                    ul.list-menu-child {
+                        display:block;
+                        li.menu-item {
+                            width: 100%;
+                            a {
+                                width:100%;
+                            }
+                        }
+                    }
+                    background: #333333;
+                }
+            }
+
+        }
+    }
+}

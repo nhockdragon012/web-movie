@@ -1,0 +1,29 @@
+@use '../../style/index' as *;
+
+#body {
+
+    .container {
+        width: 980px;
+        margin: 0 auto;
+        .left-container {
+            width: calc(100% - 300px);
+            float: left;
+            @include mobile {
+                width: 100%;
+            }
+            .movie-trending.title {
+                margin-bottom: 15px;
+            }
+        }
+        .right-container {
+            width: 300px;
+            float: right;
+            padding-left: 20px;
+            .caption {
+                border-bottom: 2px dashed #5d5d5d;
+                margin-bottom: 10px;
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+@use '../../../style/index' as *;
+.modal-box {
+    @include position(fixed,0,0,0,0);
+    @include flex(center, center);
+    width:100vw;
+    background: #000000ba;
+    visibility: hidden;
+    z-index: 99;
+    .modal-box__movie-trailer {
+        @include size(80%, 80%);
+        position: relative;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        transform: scale(0);
+        @include mobile {
+            width: 90%;
+            height: 32%;
+        }
+        @include tablet {
+            height:40%;
+        }
+        .close-modal-box {
+            display: table;
+            position: absolute;
+            right: -30px;
+            top: -36px;
+            height: 24px;
+            width: 24px;
+            color: #fff;
+            cursor: pointer;
+            z-index: 2;
+            @include mobile {
+                right: -5px;
+                top: -26px;
+            }
+        }
+        .modal-box__container {
+            @include size(100%,100%);
+            background: #000;
+            overflow-y: scroll;
+            .video-trailer-youtube {
+                position: relative;
+                @include size(100%, 0);
+                padding-bottom: 48.25%;
+                padding-top: 30px;
+                overflow: hidden;
+                iframe,object, embed{
+                    @include size(100%, 100%);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    border: none;   
+                }
+                &:nth-child(n+2) {
+                    margin-top: 20px;
+                    @include mobile {
+                        margin-top:10px;
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    .overlay {
+        
+    }
+    &.open {
+        visibility: visible;
+        .modal-box__movie-trailer {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}

@@ -1,0 +1,145 @@
+@use '../../style/index' as *;
+
+.page-movile-details {
+    padding: 10px;
+    background: #181818;
+    overflow: hidden;
+    .poster {
+        float: left;
+        width: 45%;
+        margin:0 10px 10px 0;
+        position: relative;
+        height: 400px;
+        @include mobile {
+            float: none;
+            margin: 0 0 10px 0; 
+            text-align: center;
+            width: 100%;
+        }
+        img {
+            @include size(100%, 100%);
+            object-fit: cover;
+            @include mobile {
+                padding-bottom: 10px;
+                width: 65%;
+                margin:auto;
+            }
+        }
+        .btn-box-open-video {
+            @include flex(center, center);
+            position: absolute;
+            bottom: 0;
+            height: 60px;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            button.btn-open-video {
+                background-color: #d23c37;
+                outline: none;
+                padding: 8px 10px;
+                color: #fff;
+                border: 1px solid #d43f3a;
+                cursor: pointer;
+                text-transform: uppercase;
+                box-shadow: inset 0 3px 5px rgb(0 0 0 / 13%);
+                &:hover, &:active {
+                    color: #dcdcdc;
+                    background-color: #b82c28;
+                    border-color: #ac2925;
+                }
+            }
+        }
+    }
+    .content {
+        float:left;
+        width: calc(55% - 10px);
+        @include mobile {
+            width: 100%;
+            float: none;
+        }
+        h1.title {
+            font-size:36px;
+            color: #ff9658;
+            margin: 5px 0;
+            @include mobile {
+                margin-left: 0;
+            }
+        }
+        h2.real-title {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+        .info-box {
+            width: 100%;
+            padding: 5px 8px;
+            line-height: 26px;
+            font-size: 12px;
+            color: #bbb;
+            background :#222;
+            .info-item {
+                span.text {
+                    font-weight: 600;
+                }
+                span.status {
+                    background-color: #777;
+                    padding: 3px 5px;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+    .description-box {
+        background-color: #282828;
+        padding: 10px;
+        h3.title {
+            font-size: 14px;
+            font-weight: 600px;
+            text-transform: uppercase;
+        }
+        div {
+            p.desc-text {
+                color: #828282;
+                font-size: 14px;
+            }   
+        }
+    }
+    .info-film-studio {
+        margin-top: 10px;
+        h3.title {
+            width: 100%;
+        }
+        .film-studio-box {
+            .film-studio-item {
+                width: 100%;
+                background: #fff;
+                margin: 10px 0;
+                margin-right: 10px;
+                position: relative;
+                img.logo {
+                    width:100%;
+                    height: 250px;
+                    object-fit: contain;
+                    padding: 7px 7px  47px 7px;
+                    @include mobile {
+                        height: 220px;
+                    }
+                }
+                h4.name {
+                    @include flex(center, center);
+                    @include size(100%,40px);
+                    text-align: center;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    background: #000;
+                    
+                }
+            }
+            .film-studio-item:nth-child(4n) {
+                margin-right: 0;
+            }
+        }
+    }
+}

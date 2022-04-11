@@ -1,0 +1,44 @@
+@use './variables' as *;
+@mixin mobile {
+    @media only screen and (max-width: $mobile-width) {
+        @content;
+        #body {
+            .container {
+                width: 100%;
+                h1{
+                    margin-left: 10px;
+                }
+                .left-container {
+                    width: 100%;
+                    h2.title {
+                        margin: 10px 0 10px 10px !important;
+                    }
+                }
+                .right-container {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+@mixin tablet {
+    @media only screen and (max-width: $tablet-width) and (min-width: $mobile-width) {
+        @content;
+        #body {
+            width: 100%;
+            overflow: hidden;
+            .container {
+                width: 100%;
+                h1{
+                    margin-left: 10px;
+                }
+                .left-container {
+                    width: 100%;
+                    h2.title {
+                        margin: 10px !important;
+                    }
+                }
+            }
+        }
+    }
+} 

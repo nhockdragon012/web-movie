@@ -1,0 +1,42 @@
+@use '../../style/index' as *;
+
+.movie-box.upcoming {
+    .movie-upcoming-item {
+        margin: 5px 0 0 5px;
+        width: 100%;
+        overflow: hidden;
+        a {
+            img.poster {
+                float: left;
+                width: 75px;
+                height: 87px;
+                object-fit: cover;
+                margin: 3px 10px 0 0;
+                border: 1px solid #efefef;
+            }
+            .content {  
+                margin-top: 6px;
+                overflow: hidden;
+                h4.title {
+                    font-size: 14px;
+                    &:hover {
+                        color: #ff9601;
+                    }
+                }
+                p.release {
+                    font-size: 12px;
+                    margin-top: 10px;
+                    margin-left: 3px;
+                }
+                p.start {
+                    margin-top: 10px;
+                    transform: translateX(20px) scale(1.2);
+                }
+            }
+        }
+        &:nth-child(even) {
+            background: rgb(24 24 24);
+        }
+    }
+
+}
