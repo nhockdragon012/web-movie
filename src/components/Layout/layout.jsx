@@ -2,18 +2,28 @@ import './layout.scss';
 import Header from '../Header/header'
 import Route from '../../Route'
 import Navbar from '../navbar'
-
+import {useState} from 'react'
 // $mobile-width: 767px;
 // $tablet-width: 1023px;
 function Layout() {  
-  const windowWidth = window.innerWidth 
+  
+  const useWidth = (setWidth = '1024px') => {
+    const width = window.matchMedia(`(min-width: ${setWidth})`)
+    const [widthScreen, setWidthScreen] = useState(width.matches)
+    width.addEventListener('change', (e) => {
+      setWidthScreen(e.matches)
+    })
+    return widthScreen
+  }
+  const widthScreen = useWidth()
+
   return (
     <>
-      <Header/>
+      <Header useWidth={useWidth}/>
       <section id="body">
         <div className="container">
             <Route/>
-          {windowWidth >= 1024 && <div className="right-container">
+          {widthScreen && <div className="right-container">
             <Navbar/>
           </div>}
         </div>

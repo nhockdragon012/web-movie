@@ -9,11 +9,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass, faRightToBracket, faUsers, faBookmark, faBars, faCircleArrowRight} from '@fortawesome/free-solid-svg-icons'
 import {GetData} from '../providerContext'
 
-function Header() {
+function Header({useWidth}) {
   const [input, setInput] = useState('')
-  const windowWidth = window.innerWidth
   const getValue = useContext(GetData)
 
+  // Responsive
+  const widthScreen = useWidth('768px')
+  //Handle
   const handleMobileMenu = (e) => {
     const a = document.querySelector('li.menu-item>a')
     const menu = document.querySelector('ul.container')
@@ -37,7 +39,7 @@ function Header() {
       <header>
       <div className="container">
           <div className="body-header">
-            {windowWidth < 768 &&<div className="main-menu-mobile">
+            {!widthScreen &&<div className="main-menu-mobile">
               <div className="btn-burger" 
                 onClick={() => {document.querySelector('ul.container').classList.add('active')}}>
                     <FontAwesomeIcon icon={faBars} size="2x"/>
@@ -76,7 +78,7 @@ function Header() {
                 <img src={logo} alt="logo.png"></img>
               </a>
             </div>
-            {windowWidth >= 768 &&<div className="right-header">
+            {widthScreen &&<div className="right-header">
               <div className="search-box">
                   <form method="get">
                       <input 
@@ -116,7 +118,7 @@ function Header() {
                 <p>Công cụ tìm kiếm phim.</p>
               </div>
             </div>}
-            {windowWidth < 768 &&<div className="mobile-search">
+            {!widthScreen &&<div className="mobile-search">
               <div className="search-icon" onClick={() => document.querySelector('.mobile-search .search-box').classList.toggle('active')}>
                 <FontAwesomeIcon icon={faMagnifyingGlass} size='xl'/>
               </div>
@@ -138,7 +140,7 @@ function Header() {
             <div className="clear" style={{clear:'both'}}></div>
           </div>
       </div>
-      {windowWidth >= 768 &&<div className="main-menu">
+      {widthScreen &&<div className="main-menu">
         <ul className="container">
           <li className="menu-item active"><Link to="/">Trang chủ</Link></li>
           <li className="menu-item">
